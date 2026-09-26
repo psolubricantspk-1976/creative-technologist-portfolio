@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Creative technologist portfolio featuring interactive 3D experiences, WebGL, and thoughtful digital design.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Creative Technologist Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="three-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Creative Technologist home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-text">Creative Technologist</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="primary-navigation">
+        <a class="active" href="#home">Home</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="#contact">Let's talk</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section hero" id="home">
+      <div class="container hero-wrap">
+        <div class="hero-copy">
+          <p class="eyebrow">Creative technologist · Karachi / Worldwide</p>
+          <h1>Digital experiences with a pulse.</h1>
+          <p class="hero-text">I blend code, motion, and visual thinking to make interactive products that feel as good as they work.</p>
+          <div class="cta-row">
+            <a class="primary-btn" href="#work">Explore selected work <span aria-hidden="true">↗</span></a>
+            <a class="secondary-btn" href="#about">More about me</a>
+          </div>
+          <div class="stats-row" aria-label="Experience statistics">
+            <div><strong>06+</strong><span>Years exploring<br>creative code</span></div>
+            <div><strong>42</strong><span>Experiments<br>shipped</span></div>
+            <div><strong>∞</strong><span>Curiosity<br>remaining</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Selected work</p>
+          <h2>Where ideas become interactive.</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card"><div class="card-visual"><span class="chip">01 / WebGL</span><span class="orb orb-a"></span><span class="orb orb-b"></span><span class="grid-lines"></span></div><div class="card-copy"><p class="meta">Interactive platform · 2024</p><h3>Atlas of motion</h3><p>A living visual system that turns complex movement data into an intuitive, immersive story.</p><div class="tag-row"><span>Three.js</span><span>Data viz</span><span>Art direction</span></div></div></article>
+          <article class="project-card"><div class="card-visual"><span class="chip">02 / Spatial</span><span class="ring-ring"></span><span class="pulse-lines"></span></div><div class="card-copy"><p class="meta">Digital installation · 2023</p><h3>Signal / noise</h3><p>An audiovisual playground exploring the beautiful tension between order and chaos.</p><div class="tag-row"><span>Web Audio</span><span>Generative</span><span>Creative coding</span></div></div></article>
+          <article class="project-card"><div class="card-visual"><span class="chip">03 / Product</span><span class="stack-stack"><span class="stack-item"></span><span class="stack-item stack-two"></span><span class="stack-item stack-three"></span></span></div><div class="card-copy"><p class="meta">Product experience · 2023</p><h3>Future archive</h3><p>A tactile digital archive designed to make discovery feel more human and less like search.</p><div class="tag-row"><span>UX strategy</span><span>Prototyping</span><span>Motion</span></div></div></article>
+          <article class="project-card"><div class="card-visual"><span class="chip">04 / Experiment</span><span class="dot-cluster"></span></div><div class="card-copy"><p class="meta">Ongoing research · 2025</p><h3>Soft machines</h3><p>Small experiments at the edge of generative systems, material language, and play.</p><div class="tag-row"><span>Generative AI</span><span>Canvas</span><span>Research</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about"><div class="container about-grid"><div class="portrait-panel" aria-hidden="true"><div class="portrait-glow"></div><div class="portrait-card"><div class="portrait-silhouette"><span class="person-head"></span><span class="person-body"></span></div><span class="floating-badge badge-one">Always curious</span><span class="floating-badge badge-two">Built with intent</span></div></div><div class="about-copy"><p class="eyebrow">A little context</p><h2>Part designer, part engineer, always a storyteller.</h2><p>I work across disciplines to turn fuzzy questions into clear, memorable experiences. My practice lives between visual design, frontend engineering, and creative technology.</p><p>Whether it is a brand world, a product interface, or an experimental canvas, I care about the details that make people stop, look, and feel something.</p><div class="about-points"><div><strong>01</strong><span>Concept to launch — I can take an idea from the first sketch through a polished, performant build.</span></div><div><strong>02</strong><span>Human-first systems — technology should make experiences clearer, warmer, and more useful.</span></div></div></div></div></section>
+
+    <section class="section" id="contact"><div class="container contact-shell"><div class="contact-copy"><p class="eyebrow">Have a good problem?</p><h2>Let's make something worth remembering.</h2><p>Tell me what you are building, what you are exploring, or what is not working yet.</p><a href="mailto:hello@example.com">hello@example.com ↗</a></div><form class="contact-form"><label for="name">Name<input id="name" name="name" type="text" autocomplete="name" required></label><label for="email">Email<input id="email" name="email" type="email" autocomplete="email" required></label><label for="message">Message<textarea id="message" name="message" rows="5" required></textarea></label><button class="primary-btn" type="submit">Send message <span aria-hidden="true">↗</span></button><p class="form-status" role="status" aria-live="polite"></p></form></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-wrap"><span>© 2025 Creative Technologist</span><div class="social-row"><a href="#home">Back to top ↑</a></div></div></footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
