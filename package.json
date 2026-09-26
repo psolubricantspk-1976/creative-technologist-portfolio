@@ -1,0 +1,22 @@
+{
+  "name": "creative-technologist-portfolio",
+  "version": "1.0.0",
+  "description": "A fully functional, responsive single-page 3D interactive website for a Creative Technologist Portfolio with WebGL 3D canvas, smooth scroll animations, and modern UI/UX design.",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build required'",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "portfolio",
+    "creative-technologist",
+    "3d",
+    "webgl"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.1.0"
+  }
+}
