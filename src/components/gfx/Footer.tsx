@@ -63,6 +63,7 @@ const FOOTER_COLUMNS = [
       { label: "How it works", href: "/#process" },
       { label: "Trader reviews", href: "/#reviews" },
       { label: "FAQ", href: "/#faq" },
+      { label: "Help Center", href: "/help" },
     ],
   },
   {
@@ -158,6 +159,7 @@ export function Footer() {
         <div className="gfx-footer-bottom">
           <span>© 2026 {siteConfig.name}. All rights reserved.</span>
           <div className="gfx-footer-bottom-links">
+            <Link href="/help">Help Center</Link>
             <Link href="/legal#terms">Terms</Link>
             <Link href="/legal#privacy">Privacy</Link>
             <Link href="/legal#cookies">Cookies</Link>

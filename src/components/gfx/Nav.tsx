@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { loginHref, startHref } from "@/config/site";
@@ -9,6 +10,7 @@ const LINKS = [
   { label: "Rules", href: "#rules" },
   { label: "Rewards", href: "#rewards" },
   { label: "FAQ", href: "#faq" },
+  { label: "Help Center", href: "/help" },
 ];
 
 function ArrowUpRight({ size = 13 }: { size?: number }) {
@@ -52,11 +54,17 @@ export function Nav() {
           <Logo />
 
           <div className="gfx-nav-links">
-            {LINKS.map((link) => (
-              <a key={link.href} href={link.href} className="gfx-nav-link">
-                {link.label}
-              </a>
-            ))}
+            {LINKS.map((link) =>
+              link.href.startsWith("/") ? (
+                <Link key={link.href} href={link.href} className="gfx-nav-link">
+                  {link.label}
+                </Link>
+              ) : (
+                <a key={link.href} href={link.href} className="gfx-nav-link">
+                  {link.label}
+                </a>
+              )
+            )}
           </div>
 
           <div className="gfx-nav-actions">
@@ -101,16 +109,27 @@ export function Nav() {
 
       <div id="gfx-mobile-menu" className={`gfx-mobile${open ? " is-open" : ""}`}>
         <div className="gfx-mobile-inner">
-          {LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="gfx-mobile-link"
-              onClick={() => setOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {LINKS.map((link) =>
+            link.href.startsWith("/") ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="gfx-mobile-link"
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="gfx-mobile-link"
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </a>
+            )
+          )}
           <div className="gfx-mobile-ctas">
             <a
               href={loginHref}

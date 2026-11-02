@@ -9,11 +9,30 @@ Tailwind CSS v4, with a bespoke ember-and-charcoal design system.
 | Route | Description |
 | --- | --- |
 | `/` | **GlobalForgeX** homepage — hero, program selector, risk framework, dashboard preview, rewards, reviews, FAQ |
+| `/help` | **Help Center** — 94 articles across 12 collections, searchable, one page per article |
+| `/help/[collection]` | A collection's articles grouped by section |
+| `/help/[collection]/[article]` | A single article with sidebar, pager and inline pending markers |
 | `/legal` | Terms, program rules, privacy, cookies, AML, refunds and risk disclosure |
 | `/global4ex` | The previous GLOBAL4EX site, kept for reference (`noindex`) |
 | `/sitemap.xml`, `/robots.txt` | Generated SEO routes |
 | `/opengraph-image` | Generated 1200×630 social preview image |
 | `/api/health` | Database health check |
+
+## Help Center content
+
+All Help Center copy lives in **`src/content/help-center/`** and is authored, not
+scraped:
+
+- `rules.ts` — every published figure in one place (targets, daily limits, max loss,
+  splits, caps). Change a number here and every article updates.
+- `articles.ts` — the 94 articles, built from per-product templates so the six
+  product collections stay consistent.
+- `types.ts` — the block model (`p`, `h`, `ul`, `ol`, `callout`, `table`, `formula`,
+  `kv`, `examples`, `pending`).
+
+Nothing in the content prints a raw placeholder. Where a value has not been
+confirmed it renders as a `Pending` chip, and `docs/help-center/open-decisions.md`
+lists exactly what is missing and which decisions are still open.
 
 ## Configuration
 

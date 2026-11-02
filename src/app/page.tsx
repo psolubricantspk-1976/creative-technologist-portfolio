@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Nav } from "@/components/gfx/Nav";
 import { Programs } from "@/components/gfx/Programs";
 import { Reveal } from "@/components/gfx/Reveal";
@@ -1032,9 +1033,9 @@ function FaqSection() {
                 <a href={supportHref} className="gfx-btn gfx-btn--primary gfx-btn--sm">
                   Email support
                 </a>
-                <a href="#rules" className="gfx-btn gfx-btn--ghost gfx-btn--sm">
-                  Read the rules
-                </a>
+                <Link href="/help" className="gfx-btn gfx-btn--ghost gfx-btn--sm">
+                  Browse the Help Center
+                </Link>
               </div>
             </div>
           </div>
