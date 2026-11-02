@@ -991,7 +991,7 @@ function flexArticles(): Article[] {
         { kind: "h", text: "News on the funded stage" },
         {
           kind: "p",
-          text: "Do not open or close a position inside the restriction window around red-folder news or an FOMC announcement. Profit made inside that window is removed, and a first breach is not an automatic fail. News trading remains fully allowed during the evaluation.",
+          text: "News trading is allowed on the Flex evaluation. Whether the funded stage restricts opening or closing positions around high-impact releases — and how wide that window is — has not been published yet, so do not assume an exemption in either direction.",
         },
         {
           kind: "pending",
