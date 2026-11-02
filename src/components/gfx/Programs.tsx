@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { startHref } from "@/config/site";
 
 type TierId = "spark" | "forge" | "apex";
 type SizeKey = "10k" | "25k" | "50k" | "100k" | "200k";
@@ -217,7 +218,14 @@ export function Programs() {
             <span>BTC</span>
           </div>
 
-          <a href="#cta" className="gfx-btn gfx-btn--primary gfx-btn--block">
+          <a
+            href={startHref({
+              program: tier.name,
+              size: sizeLabel,
+              price,
+            })}
+            className="gfx-btn gfx-btn--primary gfx-btn--block"
+          >
             Start {tier.name} — {price}
           </a>
           <p className="gfx-buy-note">

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
+import { loginHref, startHref } from "@/config/site";
 
 const LINKS = [
   { label: "Programs", href: "#programs" },
@@ -59,10 +60,13 @@ export function Nav() {
           </div>
 
           <div className="gfx-nav-actions">
-            <a href="#platform" className="gfx-nav-signin">
-              Member login
+            <a href={loginHref} className="gfx-nav-signin">
+              Member area
             </a>
-            <a href="#programs" className="gfx-nav-cta">
+            <a
+              href={startHref({ program: "Forge", size: "$50K", price: "$269" })}
+              className="gfx-nav-cta"
+            >
               Start evaluation
               <span aria-hidden="true">
                 <ArrowUpRight size={12} />
@@ -108,8 +112,12 @@ export function Nav() {
             </a>
           ))}
           <div className="gfx-mobile-ctas">
-            <a href="#platform" className="gfx-btn gfx-btn--ghost gfx-btn--sm" onClick={() => setOpen(false)}>
-              Member login
+            <a
+              href={loginHref}
+              className="gfx-btn gfx-btn--ghost gfx-btn--sm"
+              onClick={() => setOpen(false)}
+            >
+              Member area
             </a>
             <a href="#programs" className="gfx-btn gfx-btn--primary gfx-btn--sm" onClick={() => setOpen(false)}>
               Start evaluation

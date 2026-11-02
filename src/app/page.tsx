@@ -1,8 +1,20 @@
 import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import { Nav } from "@/components/gfx/Nav";
 import { Programs } from "@/components/gfx/Programs";
 import { Reveal } from "@/components/gfx/Reveal";
-import { Logo } from "@/components/gfx/Logo";
+import { Footer } from "@/components/gfx/Footer";
+import { loginHref, siteConfig, startHref, supportHref } from "@/config/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: {
+    url: "/",
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
+    description:
+      "A simulated trading evaluation built for disciplined traders. Transparent rules, up to $200K virtual capital, and rewards up to 92%.",
+  },
+};
 
 /* ───────────────────────────── helpers ───────────────────────────── */
 
@@ -261,36 +273,6 @@ const FAQS = [
   },
 ];
 
-const FOOTER_COLUMNS = [
-  {
-    title: "Platform",
-    links: [
-      { label: "Evaluation programs", href: "#programs" },
-      { label: "Risk framework", href: "#rules" },
-      { label: "Rewards", href: "#rewards" },
-      { label: "Command center", href: "#platform" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "How it works", href: "#process" },
-      { label: "Trader reviews", href: "#reviews" },
-      { label: "FAQ", href: "#faq" },
-      { label: "Contact", href: "mailto:support@globalforgex.com" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Terms of service", href: "#" },
-      { label: "Privacy policy", href: "#" },
-      { label: "AML policy", href: "#" },
-      { label: "Risk disclosure", href: "#" },
-    ],
-  },
-];
-
 /* ───────────────────────────── icons ───────────────────────────── */
 
 function PillarIcon({ name }: { name: "rules" | "risk" | "reward" }) {
@@ -395,47 +377,6 @@ function RuleIcon({ name }: { name: "daily" | "max" | "target" | "consistency" |
   }
 }
 
-function SocialIcon({ name }: { name: "x" | "instagram" | "discord" | "youtube" }) {
-  const shared = {
-    width: 16,
-    height: 16,
-    viewBox: "0 0 24 24",
-    fill: "currentColor",
-    "aria-hidden": true,
-  };
-
-  switch (name) {
-    case "x":
-      return (
-        <svg {...shared}>
-          <path d="M17.7 3h3.2l-7 8 8.2 10h-6.4l-5-6.1L4.9 21H1.7l7.5-8.6L1.2 3h6.6l4.5 5.6L17.7 3Zm-1.1 16.1h1.8L7.3 4.8H5.4l11.2 14.3Z" />
-        </svg>
-      );
-    case "instagram":
-      return (
-        <svg {...shared} fill="none" stroke="currentColor" strokeWidth="1.7">
-          <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" />
-          <circle cx="12" cy="12" r="4" />
-          <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
-        </svg>
-      );
-    case "discord":
-      return (
-        <svg {...shared}>
-          <path d="M19.3 5.6A16 16 0 0 0 15.4 4l-.2.5c1.5.4 2.8 1 4 1.8a13.7 13.7 0 0 0-12.4 0c1.2-.8 2.5-1.4 4-1.8L10.6 4a16 16 0 0 0-3.9 1.6C4.1 9.3 3.4 13 3.7 16.7a15 15 0 0 0 4.6 2.3l.9-1.4c-.8-.3-1.6-.7-2.3-1.2l.5-.4a10.7 10.7 0 0 0 9.2 0l.5.4c-.7.5-1.5.9-2.3 1.2l.9 1.4a15 15 0 0 0 4.6-2.3c.4-4.3-.7-8-3-11.1ZM9.4 14.6c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm5.2 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z" />
-        </svg>
-      );
-    case "youtube":
-      return (
-        <svg {...shared}>
-          <path d="M22 12s0-3.2-.4-4.7a2.4 2.4 0 0 0-1.7-1.7C18.4 5.2 12 5.2 12 5.2s-6.4 0-7.9.4a2.4 2.4 0 0 0-1.7 1.7C2 8.8 2 12 2 12s0 3.2.4 4.7a2.4 2.4 0 0 0 1.7 1.7c1.5.4 7.9.4 7.9.4s6.4 0 7.9-.4a2.4 2.4 0 0 0 1.7-1.7c.4-1.5.4-4.7.4-4.7Zm-12.1 3V9l5.4 3-5.4 3Z" />
-        </svg>
-      );
-    default:
-      return null;
-  }
-}
-
 /* ───────────────────────────── sections ───────────────────────────── */
 
 function Hero() {
@@ -463,7 +404,10 @@ function Hero() {
             </p>
 
             <div className="gfx-hero-ctas">
-              <a href="#programs" className="gfx-btn gfx-btn--primary">
+              <a
+                href={startHref({ program: "Forge", size: "$50K", price: "$269" })}
+                className="gfx-btn gfx-btn--primary"
+              >
                 Start an evaluation
                 <ArrowUpRight size={15} />
               </a>
@@ -475,7 +419,7 @@ function Hero() {
             <div className="gfx-hero-trust">
               <Stars />
               <span>
-                <b>4.8/5</b> from 1,240 traders
+                <b>4.8/5</b> from 1,240 verified reviews
               </span>
               <span className="gfx-trust-sep" aria-hidden="true" />
               <span>Trusted in 92 countries</span>
@@ -593,7 +537,7 @@ function Hero() {
 
             <div className="gfx-status-strip">
               <span className="gfx-status-chip">
-                <span className="gfx-float-icon" aria-hidden="true">
+                <span className="gfx-chip-icon" aria-hidden="true">
                   <CheckIcon size={13} />
                 </span>
                 <span>
@@ -602,7 +546,7 @@ function Hero() {
                 </span>
               </span>
               <span className="gfx-status-chip">
-                <span className="gfx-float-icon" aria-hidden="true">
+                <span className="gfx-chip-icon gfx-chip-icon--ember" aria-hidden="true">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
                     <path d="M12 3.5 20 6v6c0 4.4-3.1 7.6-8 8.7-4.9-1.1-8-4.3-8-8.7V6l8-2.5Z" />
                   </svg>
@@ -1035,7 +979,7 @@ function ReviewsSection() {
           <div className="gfx-hero-trust" style={{ paddingTop: 0 }}>
             <Stars />
             <span>
-              <b>4.8/5</b> average member rating
+              <b>4.8/5</b> · 1,240 verified reviews
             </span>
           </div>
         </div>
@@ -1085,8 +1029,8 @@ function FaqSection() {
                 We answer seven days a week.
               </p>
               <div className="gfx-support-links">
-                <a href="mailto:support@globalforgex.com" className="gfx-btn gfx-btn--primary gfx-btn--sm">
-                  Chat with support
+                <a href={supportHref} className="gfx-btn gfx-btn--primary gfx-btn--sm">
+                  Email support
                 </a>
                 <a href="#rules" className="gfx-btn gfx-btn--ghost gfx-btn--sm">
                   Read the rules
@@ -1125,11 +1069,14 @@ function FinalCta() {
               edge and get rewarded for discipline — not luck.
             </p>
             <div className="gfx-cta-actions">
-              <a href="#programs" className="gfx-btn gfx-btn--primary">
+              <a
+                href={startHref({ program: "Forge", size: "$50K", price: "$269" })}
+                className="gfx-btn gfx-btn--primary"
+              >
                 Start an evaluation
                 <ArrowUpRight size={15} />
               </a>
-              <a href="mailto:support@globalforgex.com" className="gfx-btn gfx-btn--ghost">
+              <a href={supportHref} className="gfx-btn gfx-btn--ghost">
                 Talk to support
               </a>
             </div>
@@ -1145,76 +1092,9 @@ function FinalCta() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="gfx-footer">
-      <div className="gfx-container">
-        <div className="gfx-footer-grid">
-          <div className="gfx-footer-brand">
-            <Logo />
-            <p>
-              A simulated trading evaluation built for traders who treat risk as a
-              skill. Transparent rules, disciplined execution, rewards that respect
-              the process.
-            </p>
-            <div className="gfx-footer-social">
-              <a href="#" className="gfx-social-btn" aria-label="GlobalForgeX on X">
-                <SocialIcon name="x" />
-              </a>
-              <a href="#" className="gfx-social-btn" aria-label="GlobalForgeX on Instagram">
-                <SocialIcon name="instagram" />
-              </a>
-              <a href="#" className="gfx-social-btn" aria-label="GlobalForgeX on Discord">
-                <SocialIcon name="discord" />
-              </a>
-              <a href="#" className="gfx-social-btn" aria-label="GlobalForgeX on YouTube">
-                <SocialIcon name="youtube" />
-              </a>
-            </div>
-          </div>
-
-          {FOOTER_COLUMNS.map((column) => (
-            <div className="gfx-footer-col" key={column.title}>
-              <h4>{column.title}</h4>
-              <div className="gfx-footer-links">
-                {column.links.map((link) => (
-                  <a href={link.href} key={link.label}>
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="gfx-footer-disclosure">
-          <strong>Risk disclosure.</strong> GlobalForgeX provides simulated trading
-          evaluations for educational and assessment purposes only. All accounts
-          referenced on this site are demo accounts; no live market execution takes
-          place and no client funds are traded. Evaluation fees are service fees
-          only and are not deposits or investments. Simulated rewards are
-          discretionary, subject to program rules and not guaranteed. Trading
-          involves substantial risk, and simulated or past performance does not
-          indicate future results. GlobalForgeX does not provide investment advice.
-        </div>
-
-        <div className="gfx-footer-bottom">
-          <span>© 2026 GlobalForgeX. All rights reserved.</span>
-          <div className="gfx-footer-bottom-links">
-            <a href="#">Terms</a>
-            <a href="#">Privacy</a>
-            <a href="#">Cookies</a>
-            <a href="#top">Back to top ↑</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 function SupportBubble() {
   return (
-    <a href="mailto:support@globalforgex.com" className="gfx-support-bubble" aria-label="Talk to GlobalForgeX support">
+    <a href={supportHref} className="gfx-support-bubble" aria-label="Email GlobalForgeX support">
       <span className="gfx-support-ico" aria-hidden="true">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.6 9.6 0 0 1-3.4-.6L3 21l1.8-5.1A8.3 8.3 0 0 1 3.6 11 8.4 8.4 0 0 1 12 2.6h.9A8.4 8.4 0 0 1 21 11.5Z" />

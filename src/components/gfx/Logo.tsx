@@ -1,6 +1,12 @@
-export function Logo({ compact = false }: { compact?: boolean }) {
+export function Logo({
+  compact = false,
+  href = "/",
+}: {
+  compact?: boolean;
+  href?: string;
+}) {
   return (
-    <a href="#top" className="gfx-logo" aria-label="GlobalForgeX home">
+    <a href={href} className="gfx-logo" aria-label="GlobalForgeX home">
       <span className="gfx-logo-mark" aria-hidden="true">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
           <defs>
