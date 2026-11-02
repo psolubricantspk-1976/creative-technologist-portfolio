@@ -25,8 +25,13 @@ NEXT_PUBLIC_SITE_URL=https://globalforgex.com   # canonical origin
 NEXT_PUBLIC_SUPPORT_EMAIL=support@globalforgex.com
 NEXT_PUBLIC_CHECKOUT_URL=                       # optional checkout endpoint
 NEXT_PUBLIC_LOGIN_URL=                          # optional member area
-DATABASE_URL=postgresql://…                     # used by /api/health
+DATABASE_URL=postgresql://…                     # optional, used by /api/health
 ```
+
+`DATABASE_URL` is **optional at build time** — the database connection is created
+lazily, so the site builds and deploys on hosts that do not expose it. If it is
+set, `/api/health` checks connectivity; if it is missing, the site serves normally
+and the endpoint reports `{"database":"not-configured"}`.
 
 ### Before going live
 
