@@ -3,7 +3,7 @@
  *
  * Source of values
  * ────────────────
- * "published"  → taken from the live GlobalForgeX site or the archived
+ * "published"  → taken from the live ForgeX Global site or the archived
  *                GLOBAL4EX site (which uses the same Safe / Pro / Instant
  *                Direct / Flex product taxonomy as the help-centre spec).
  * "pending"    → not stated anywhere yet. Rendered in the UI as a clearly
@@ -29,7 +29,7 @@ const TBD = (hint: string): RuleValue => ({ value: null, hint });
 
 /** Fixed platform-wide settings that are already published on the site. */
 export const platform = {
-  company: "GlobalForgeX",
+  company: "ForgeX Global",
   /** Daily reset — the live site states limits reset at 00:00 UTC. */
   dailyReset: rule("00:00 UTC", "Dashboard time is the sole reference."),
   /** Funded consistency check — live site rules section. */
@@ -161,7 +161,7 @@ export const flex = {
  * Surfaced on the Help Center index so they are not lost.
  */
 export const openDecisions = [
-  "The spec names the five products Safe Mode, Pro Mode, Instant Direct Lite, Instant Direct Pro and Flex. The GlobalForgeX homepage sells Spark, Forge and Apex. The two taxonomies currently disagree.",
+  "The spec names the five products Safe Mode, Pro Mode, Instant Direct Lite, Instant Direct Pro and Flex. The ForgeX Global homepage sells Spark, Forge and Apex. The two taxonomies currently disagree.",
   "Safe Mode is marketed as having no daily loss limit, but the spec gives every product a Maximum Daily Pause. Confirm whether Safe Mode keeps an unlimited daily loss.",
   "The spec asks whether a maximum daily breach closes the account or only pauses trading until the next day. Safe Mode is titled “Pause”, Pro Mode “Drawdown” — confirm the behaviour for each.",
   "The spec describes the Flex maximum drawdown as trailing and locking at the starting balance; the site lists it as static at 8%. Confirm which applies.",

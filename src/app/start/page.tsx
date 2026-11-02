@@ -10,10 +10,10 @@ import { paymentMethodById, type PaymentMethodId } from "@/config/payments";
 export const metadata: Metadata = {
   title: "Start an evaluation",
   description:
-    "Choose a GlobalForgeX program and account size, review the rules and fee, and start your simulated trading evaluation.",
+    "Choose a ForgeX Global program and account size, review the rules and fee, and start your simulated trading evaluation.",
   alternates: { canonical: "/start" },
   openGraph: {
-    title: "Start an evaluation | GlobalForgeX",
+    title: "Start an evaluation | ForgeX Global",
     description:
       "Choose a program and account size, review the rules and fee, and start your evaluation.",
     url: "/start",

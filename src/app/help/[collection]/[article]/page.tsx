@@ -30,7 +30,7 @@ export async function generateMetadata({
     description: article.summary,
     alternates: { canonical: `/help/${collection.slug}/${article.slug}` },
     openGraph: {
-      title: `${article.title} | GlobalForgeX`,
+      title: `${article.title} | ForgeX Global`,
       description: article.summary,
       url: `/help/${collection.slug}/${article.slug}`,
       type: "article",

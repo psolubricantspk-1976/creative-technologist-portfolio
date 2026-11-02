@@ -7,12 +7,12 @@ import { PortalDashboard } from "@/components/portal/PortalDashboard";
 export const metadata: Metadata = {
   title: "Member area",
   description:
-    "The GlobalForgeX member area: equity, progress to target, open positions, payout requests and account settings for a funded account.",
+    "The ForgeX Global member area: equity, progress to target, open positions, payout requests and account settings for a funded account.",
   alternates: { canonical: "/portal" },
   openGraph: {
-    title: "Member area | GlobalForgeX",
+    title: "Member area | ForgeX Global",
     description:
-      "Equity, progress, positions and payouts for a funded GlobalForgeX account.",
+      "Equity, progress, positions and payouts for a funded ForgeX Global account.",
     url: "/portal",
     type: "website",
   },

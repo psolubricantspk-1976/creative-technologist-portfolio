@@ -13,12 +13,12 @@ import {
 export const metadata: Metadata = {
   title: "Help Center",
   description:
-    "Rules, requirements and payout guidance for GlobalForgeX Safe Mode, Pro Mode, Instant Direct and Flex accounts.",
+    "Rules, requirements and payout guidance for ForgeX Global Safe Mode, Pro Mode, Instant Direct and Flex accounts.",
   alternates: { canonical: "/help" },
   openGraph: {
-    title: "Help Center | GlobalForgeX",
+    title: "Help Center | ForgeX Global",
     description:
-      "Rules, requirements and payout guidance for GlobalForgeX accounts.",
+      "Rules, requirements and payout guidance for ForgeX Global accounts.",
     url: "/help",
     type: "article",
   },
@@ -34,7 +34,7 @@ export default function HelpIndexPage() {
           <p className="gfx-lede">
             {articleCount} articles across {collectionCount} collections covering
             trading rules, payout eligibility, account sizes and add-ons for every
-            GlobalForgeX product.
+            ForgeX Global product.
           </p>
           <div className="hc-hero-meta">
             <span>{articleCount} articles</span>

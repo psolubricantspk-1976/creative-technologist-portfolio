@@ -12,7 +12,7 @@ listed below. Nothing in this file is shown to customers except the chips.
 These are conflicts between the source specification and what the site currently
 says. Each one needs a single answer before the affected articles can be final.
 
-1. The spec names the five products Safe Mode, Pro Mode, Instant Direct Lite, Instant Direct Pro and Flex. The GlobalForgeX homepage sells Spark, Forge and Apex. The two taxonomies currently disagree.
+1. The spec names the five products Safe Mode, Pro Mode, Instant Direct Lite, Instant Direct Pro and Flex. The ForgeX Global homepage sells Spark, Forge and Apex. The two taxonomies currently disagree.
 2. Safe Mode is marketed as having no daily loss limit, but the spec gives every product a Maximum Daily Pause. Confirm whether Safe Mode keeps an unlimited daily loss.
 3. The spec asks whether a maximum daily breach closes the account or only pauses trading until the next day. Safe Mode is titled “Pause”, Pro Mode “Drawdown” — confirm the behaviour for each.
 4. The spec describes the Flex maximum drawdown as trailing and locking at the starting balance; the site lists it as static at 8%. Confirm which applies.

@@ -1,5 +1,5 @@
 /**
- * GlobalForgeX site configuration.
+ * ForgeX Global site configuration.
  *
  * This is the single place to update brand, contact and outbound links.
  * Values can be overridden with environment variables so the same build
@@ -30,7 +30,7 @@ export type SocialLink = {
 const trimTrailingSlash = (value: string) => value.replace(/\/+$/, "");
 
 export const siteConfig = {
-  name: "GlobalForgeX",
+  name: "ForgeX Global",
   tagline: "Forge your edge. Fund your ambition.",
   /** Canonical origin used for metadata, sitemap and robots. */
   url: trimTrailingSlash(
@@ -64,7 +64,7 @@ export function emailHref({ to, subject, body }: EmailOptions = {}) {
 }
 
 export const supportHref = emailHref({
-  subject: "GlobalForgeX — question about the evaluation",
+  subject: "ForgeX Global — question about the evaluation",
 });
 
 type StartDetails = {

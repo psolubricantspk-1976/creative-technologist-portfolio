@@ -1,4 +1,4 @@
-/** Types for the GlobalForgeX Help Center. */
+/** Types for the ForgeX Global Help Center. */
 
 export type Block =
   | { kind: "p"; text: string }

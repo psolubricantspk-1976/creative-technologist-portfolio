@@ -9,10 +9,10 @@ import { collections } from "@/content/help-center";
 export const metadata: Metadata = {
   title: "Support",
   description:
-    "Contact the GlobalForgeX desk about an evaluation, an account, a payout or a payment. Email support, browse the Help Center, or check the most common questions.",
+    "Contact the ForgeX Global desk about an evaluation, an account, a payout or a payment. Email support, browse the Help Center, or check the most common questions.",
   alternates: { canonical: "/support" },
   openGraph: {
-    title: "Support | GlobalForgeX",
+    title: "Support | ForgeX Global",
     description:
       "Contact the desk about an evaluation, account, payout or payment.",
     url: "/support",

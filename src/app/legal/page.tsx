@@ -7,12 +7,12 @@ import { siteConfig, supportHref } from "@/config/site";
 export const metadata: Metadata = {
   title: "Legal & policies",
   description:
-    "Terms of service, privacy policy, cookie policy, AML policy and risk disclosure for GlobalForgeX simulated trading evaluations.",
+    "Terms of service, privacy policy, cookie policy, AML policy and risk disclosure for ForgeX Global simulated trading evaluations.",
   alternates: { canonical: "/legal" },
   openGraph: {
-    title: "Legal & policies | GlobalForgeX",
+    title: "Legal & policies | ForgeX Global",
     description:
-      "Terms of service, privacy, cookies, AML and risk disclosure for GlobalForgeX.",
+      "Terms of service, privacy, cookies, AML and risk disclosure for ForgeX Global.",
     url: "/legal",
     type: "article",
   },
@@ -30,7 +30,7 @@ const SECTIONS: Section[] = [
   {
     id: "terms",
     title: "Terms of service",
-    summary: "The agreement between you and GlobalForgeX.",
+    summary: "The agreement between you and ForgeX Global.",
     paragraphs: [
       `By purchasing or using a ${siteConfig.name} evaluation you agree to these terms. ${siteConfig.name} provides access to simulated trading environments for assessment and educational purposes. We are not a broker, dealer, investment adviser or custodian, and we do not execute orders in any live market.`,
       "Evaluation fees are one-time service fees that purchase access to a demo environment and to our assessment tooling. They are not deposits, subscriptions to capital, or investments, and they do not create any ownership interest in an account, fund or strategy.",

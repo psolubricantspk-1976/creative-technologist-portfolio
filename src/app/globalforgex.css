@@ -1,5 +1,5 @@
 /* ============================================================
-   GlobalForgeX — brand stylesheet
+   ForgeX Global — brand stylesheet
    All selectors are namespaced under .gfx so the GLOBAL4EX
    pages that share this root layout are unaffected.
    ============================================================ */
@@ -306,46 +306,22 @@ html:has(.gfx) {
 }
 
 .gfx-logo-mark {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 11px;
-  background: radial-gradient(
-      120% 120% at 30% 20%,
-      rgba(255, 176, 102, 0.25),
-      transparent 60%
-    ),
-    #0d0f12;
-  border: 1px solid rgba(255, 122, 31, 0.3);
-  box-shadow: inset 0 0 18px rgba(255, 122, 31, 0.15),
-    0 6px 20px -8px rgba(255, 122, 31, 0.5);
+  display: block;
+  width: auto;
+  height: 42px;
+  filter: drop-shadow(0 8px 18px rgba(255, 122, 31, 0.22));
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gfx-logo:hover .gfx-logo-mark {
+  transform: translateY(-1px) scale(1.04);
 }
 
 .gfx-logo-word {
-  display: inline-flex;
-  align-items: baseline;
-  font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  color: var(--text);
-}
-
-.gfx-logo-word b {
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  background: linear-gradient(120deg, #ffcf9b, #ff7a1f);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.gfx-logo-word i {
-  font-style: normal;
-  font-weight: 700;
-  color: #fff;
+  display: block;
+  width: auto;
+  height: 18px;
+  opacity: 0.97;
 }
 
 .gfx-nav-links {
@@ -364,6 +340,7 @@ html:has(.gfx) {
   border-radius: 999px;
   font-size: 13.5px;
   font-weight: 500;
+  white-space: nowrap;
   color: var(--muted);
   transition: color 0.2s ease, background 0.2s ease;
 }
@@ -2560,6 +2537,28 @@ html:has(.gfx) {
 
   .gfx-faq-side {
     position: static;
+  }
+}
+
+/* Between the burger breakpoint and ~1130px the full nav just fits; tighten
+   the spacing so labels never wrap instead of collapsing to the menu early. */
+@media (max-width: 1130px) {
+  .gfx-nav {
+    gap: 14px;
+  }
+
+  .gfx-nav-link {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .gfx-nav-actions {
+    gap: 12px;
+  }
+
+  .gfx-nav-cta {
+    padding: 8px 8px 8px 14px;
+    font-size: 13px;
   }
 }
 
@@ -6011,5 +6010,233 @@ p.hc-hero-note {
 
   .gfx-trust-ico {
     display: none;
+  }
+}
+
+/* ═══════════════════════════ hero creatures ═══════════════════════════ */
+/* Decorative bull + whale drifting behind the homepage hero. The layer is
+   inert (no pointer events, hidden from AT) and loses all motion when the
+   visitor asks for reduced motion. */
+
+.gfx-creatures {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gfx-hero > .gfx-container {
+  position: relative;
+  z-index: 1;
+}
+
+.gfx-creature {
+  position: absolute;
+  opacity: 0.9;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.gfx-creature svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Bull — large, cropped by the left edge, charging into the page. */
+.gfx-creature--bull {
+  left: clamp(-230px, -12vw, -140px);
+  top: clamp(530px, 56vh, 660px);
+  width: clamp(480px, 45vw, 650px);
+  animation: gfx-bull-charge 19s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.gfx-creature--bull svg {
+  transform: scaleX(-1);
+  filter: drop-shadow(0 40px 90px rgba(45, 110, 230, 0.22));
+  /* dissolve the far side of the silhouette so it never sits on top of the
+     small hero copy — the animal reads as emerging from the corner */
+  -webkit-mask-image: linear-gradient(96deg, #000 50%, rgba(0, 0, 0, 0.4) 76%, transparent 94%);
+  mask-image: linear-gradient(96deg, #000 50%, rgba(0, 0, 0, 0.4) 76%, transparent 94%);
+}
+
+/* Whale — smaller and higher, like it is swimming past behind the copy. */
+.gfx-creature--whale {
+  left: clamp(-60px, 4vw, 120px);
+  top: clamp(-20px, 0.6vw, 14px);
+  width: clamp(310px, 27vw, 420px);
+  animation: gfx-whale-swim 26s ease-in-out infinite;
+}
+
+.gfx-creature--whale svg {
+  filter: drop-shadow(0 30px 80px rgba(255, 122, 31, 0.2));
+}
+
+.gfx-creature-bubbles {
+  position: absolute;
+  left: 10%;
+  top: 34%;
+  width: 70px;
+  height: 110px;
+}
+
+.gfx-creature-bubbles i {
+  position: absolute;
+  bottom: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 194, 125, 0.9);
+  animation: gfx-bubble-rise 8s ease-out infinite;
+}
+
+.gfx-creature-bubbles i:nth-child(1) {
+  left: 6px;
+  animation-delay: 0s;
+}
+
+.gfx-creature-bubbles i:nth-child(2) {
+  left: 26px;
+  width: 4px;
+  height: 4px;
+  animation-delay: 2.1s;
+}
+
+.gfx-creature-bubbles i:nth-child(3) {
+  left: 44px;
+  width: 6px;
+  height: 6px;
+  animation-delay: 4s;
+}
+
+.gfx-creature-bubbles i:nth-child(4) {
+  left: 58px;
+  width: 3px;
+  height: 3px;
+  animation-delay: 6.2s;
+}
+
+@keyframes gfx-bull-charge {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-0.8deg) scale(1);
+  }
+
+  45% {
+    transform: translate3d(18px, -14px, 0) rotate(0.5deg) scale(1.025);
+  }
+}
+
+@keyframes gfx-whale-swim {
+  0%,
+  100% {
+    transform: translate3d(0, 8px, 0) rotate(-1.5deg);
+  }
+
+  50% {
+    transform: translate3d(36px, -12px, 0) rotate(1.1deg);
+  }
+}
+
+@keyframes gfx-bubble-rise {
+  0% {
+    transform: translate3d(0, 10px, 0) scale(0.6);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translate3d(-14px, -96px, 0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+/* Single-column hero: the copy owns the left, so the whale swims in from the
+   top right and the bull stays low behind the dashboard preview. */
+@media (max-width: 1080px) {
+  .gfx-creature--whale {
+    left: auto;
+    right: -10px;
+    top: clamp(10px, 6vw, 70px);
+    width: clamp(270px, 38vw, 400px);
+    opacity: 0.8;
+  }
+
+  .gfx-creature--bull {
+    left: auto;
+    right: -110px;
+    top: auto;
+    bottom: clamp(-40px, 2vw, 10px);
+    width: clamp(360px, 52vw, 520px);
+    opacity: 0.8;
+  }
+
+  .gfx-creature--bull svg {
+    -webkit-mask-image: linear-gradient(280deg, #000 50%, rgba(0, 0, 0, 0.4) 76%, transparent 94%);
+    mask-image: linear-gradient(280deg, #000 50%, rgba(0, 0, 0, 0.4) 76%, transparent 94%);
+  }
+}
+
+/* Small screens: the hero is a single column, so one animal is enough. The
+   whale keeps the motif without crowding the copy. */
+@media (max-width: 720px) {
+  .gfx-creature--bull {
+    display: none;
+  }
+
+  .gfx-creature--whale {
+    left: auto;
+    right: -78px;
+    top: -22px;
+    width: 344px;
+    opacity: 0.42;
+  }
+
+  .gfx-creature--whale svg {
+    transform: scaleX(-1);
+    -webkit-mask-image: linear-gradient(264deg, #000 50%, rgba(0, 0, 0, 0.45) 76%, transparent 94%);
+    mask-image: linear-gradient(264deg, #000 50%, rgba(0, 0, 0, 0.45) 76%, transparent 94%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gfx-creature,
+  .gfx-creature-bubbles i {
+    animation: none !important;
+  }
+
+  .gfx-creature-bubbles {
+    display: none;
+  }
+}
+
+/* Soft scrim between the creatures and the copy: keeps the headline and the
+   fine print crisp while the silhouettes stay readable around the edges. */
+.gfx-creatures-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    62% 78% at 32% 42%,
+    rgba(8, 9, 11, 0.82) 0%,
+    rgba(8, 9, 11, 0.5) 42%,
+    rgba(8, 9, 11, 0) 72%
+  );
+}
+
+/* On phones the copy spans the full width, so the scrim pulls left/down and
+   leaves the top-right corner clear for the whale. */
+@media (max-width: 720px) {
+  .gfx-creatures-veil {
+    background: radial-gradient(
+      78% 54% at 30% 52%,
+      rgba(8, 9, 11, 0.86) 0%,
+      rgba(8, 9, 11, 0.5) 58%,
+      rgba(8, 9, 11, 0) 88%
+    );
   }
 }

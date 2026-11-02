@@ -25,19 +25,22 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div
             style={{
-              width: 64,
-              height: 64,
-              borderRadius: 18,
+              width: 74,
+              height: 74,
+              borderRadius: 20,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "linear-gradient(135deg, #ffc27d 0%, #ff7a1f 100%)",
-              color: "#1b0c02",
-              fontSize: 40,
+              background: "#101319",
+              border: "1px solid rgba(255, 122, 31, 0.4)",
+              boxShadow: "inset 0 0 26px rgba(255, 122, 31, 0.18)",
+              fontSize: 36,
               fontWeight: 700,
+              letterSpacing: -1,
             }}
           >
-            X
+            <span style={{ color: "#5b9dff" }}>F</span>
+            <span style={{ color: "#ff7a1f" }}>G</span>
           </div>
           <div
             style={{
@@ -47,7 +50,7 @@ export default function OpengraphImage() {
               color: "#f7f3ec",
             }}
           >
-            GLOBALFORGEX
+            FORGEX GLOBAL
           </div>
         </div>
 

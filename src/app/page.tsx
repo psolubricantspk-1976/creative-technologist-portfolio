@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Nav } from "@/components/gfx/Nav";
 import { Programs } from "@/components/gfx/Programs";
 import { Reveal } from "@/components/gfx/Reveal";
+import { HeroCreatures } from "@/components/gfx/HeroCreatures";
 import { Footer } from "@/components/gfx/Footer";
 import { loginHref, siteConfig, startHref, supportHref } from "@/config/site";
 
@@ -241,8 +242,8 @@ const QUOTES = [
 
 const FAQS = [
   {
-    q: "What is GlobalForgeX?",
-    a: "GlobalForgeX is a simulated proprietary trading evaluation platform. Traders pay a one-time evaluation fee, trade a demo account against published risk rules, and — if they meet the objectives — can request discretionary simulated rewards from a funded evaluation account.",
+    q: "What is ForgeX Global?",
+    a: "ForgeX Global is a simulated proprietary trading evaluation platform. Traders pay a one-time evaluation fee, trade a demo account against published risk rules, and — if they meet the objectives — can request discretionary simulated rewards from a funded evaluation account.",
   },
   {
     q: "Is this real money?",
@@ -384,6 +385,7 @@ function Hero() {
   return (
     <section className="gfx-hero">
       <div className="gfx-hero-grid-bg" aria-hidden="true" />
+      <HeroCreatures />
       <div className="gfx-container">
         <div className="gfx-hero-grid">
           <div className="gfx-hero-copy">
@@ -398,7 +400,7 @@ function Hero() {
             </h1>
 
             <p className="gfx-hero-sub">
-              GlobalForgeX is a simulated trading evaluation built for people who
+              ForgeX Global is a simulated trading evaluation built for people who
               respect risk. Prove your process across 60+ markets, trade up to{" "}
               <strong>$200K in virtual capital</strong>, and keep as much as 92% of
               your simulated rewards.
@@ -607,7 +609,7 @@ function Pillars() {
       <div className="gfx-container">
         <div className="gfx-section-head" {...reveal()}>
           <div className="gfx-head-copy">
-            <span className="gfx-eyebrow">Why GlobalForgeX</span>
+            <span className="gfx-eyebrow">Why ForgeX Global</span>
             <h2 className="gfx-h2">
               Built like a forge.
               <br />
@@ -909,7 +911,7 @@ function RewardsSection() {
             <h2 className="gfx-h2">Rewards that land like they should.</h2>
           </div>
           <p className="gfx-lede" style={{ maxWidth: 380 }}>
-            A look at recent simulated rewards from the GlobalForgeX community.
+            A look at recent simulated rewards from the ForgeX Global community.
             Requests are reviewed in the dashboard, with a clear status at every
             step.
           </p>
@@ -1163,7 +1165,7 @@ function TrustStrip() {
 
 function SupportBubble() {
   return (
-    <Link href="/support" className="gfx-support-bubble" aria-label="Open GlobalForgeX support">
+    <Link href="/support" className="gfx-support-bubble" aria-label="Open ForgeX Global support">
       <span className="gfx-support-ico" aria-hidden="true">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.6 9.6 0 0 1-3.4-.6L3 21l1.8-5.1A8.3 8.3 0 0 1 3.6 11 8.4 8.4 0 0 1 12 2.6h.9A8.4 8.4 0 0 1 21 11.5Z" />

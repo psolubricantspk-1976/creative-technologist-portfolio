@@ -7,7 +7,7 @@ import "./globalforgex.css";
 import { siteConfig } from "@/config/site";
 
 const description =
-  "GlobalForgeX is a simulated proprietary trading evaluation built for disciplined traders. Prove your edge across global markets and trade up to $200K in virtual capital with transparent rules and fast rewards.";
+  "ForgeX Global is a simulated proprietary trading evaluation built for disciplined traders. Prove your edge across global markets and trade up to $200K in virtual capital with transparent rules and fast rewards.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description,
   applicationName: siteConfig.name,
   keywords: [
-    "GlobalForgeX",
+    "ForgeX Global",
     "prop firm",
     "trading evaluation",
     "funded trader",
