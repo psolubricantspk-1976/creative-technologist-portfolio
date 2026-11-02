@@ -17,6 +17,8 @@
  * ───────────────────────────────────────────────────────────────────
  */
 
+import { PROGRAMS, SIZES, programById, sizeByKey } from "./programs";
+
 export type SocialNetwork = "x" | "instagram" | "discord" | "youtube";
 
 export type SocialLink = {
@@ -66,42 +68,67 @@ export const supportHref = emailHref({
 });
 
 type StartDetails = {
+  /** Program id ("forge") or display name ("Forge"). */
   program: string;
+  /** Size key ("50k") or label ("$50K"). */
   size: string;
-  price: string;
 };
+
+function resolveProgram(program: string) {
+  const key = program.trim().toLowerCase();
+  return (
+    PROGRAMS.find((item) => item.id === key) ??
+    PROGRAMS.find((item) => item.name.toLowerCase() === key) ??
+    programById(key)
+  );
+}
+
+function resolveSize(size: string) {
+  const key = size.trim().toLowerCase();
+  return (
+    SIZES.find((item) => item.key === key) ??
+    SIZES.find((item) => item.label.toLowerCase() === key) ??
+    sizeByKey(key)
+  );
+}
 
 /**
  * Destination for "Start evaluation" CTAs.
- * Uses the real checkout when configured, otherwise opens a pre-filled
- * support email so the button always does something useful.
+ *
+ * When a checkout endpoint is configured the button goes straight there with
+ * the program and size attached. Otherwise it opens the on-site /start flow,
+ * which shows the full summary and hands the request to the desk by email —
+ * no button is ever a dead link.
  */
-export function startHref({ program, size, price }: StartDetails) {
+export function startHref({ program, size }: StartDetails) {
+  const picked = resolveProgram(program);
+  const pickedSize = resolveSize(size);
+
   if (siteConfig.checkoutUrl) {
     try {
       const url = new URL(siteConfig.checkoutUrl, siteConfig.url);
-      url.searchParams.set("program", program.toLowerCase());
-      url.searchParams.set("size", size.replace(/[^0-9k]/gi, "").toLowerCase());
+      url.searchParams.set("program", picked.id);
+      url.searchParams.set("size", pickedSize.key);
       return url.toString();
     } catch {
       return siteConfig.checkoutUrl;
     }
   }
 
-  return emailHref({
-    subject: `Start ${program} evaluation — ${size} (${price})`,
-    body: [
-      `Hello ${siteConfig.name} team,`,
-      "",
-      `I would like to start the ${program} evaluation.`,
-      "",
-      `Program: ${program}`,
-      `Account size: ${size} virtual capital`,
-      `Evaluation fee: ${price}`,
-      "",
-      "Please send me the next steps.",
-    ].join("\n"),
-  });
+  return `/start?program=${picked.id}&size=${pickedSize.key}`;
+}
+
+/** Direct checkout URL for a selection, or null when none is configured. */
+export function checkoutHref(programId: string, sizeKey: string) {
+  if (!siteConfig.checkoutUrl) return null;
+  try {
+    const url = new URL(siteConfig.checkoutUrl, siteConfig.url);
+    url.searchParams.set("program", programId);
+    url.searchParams.set("size", sizeKey);
+    return url.toString();
+  } catch {
+    return siteConfig.checkoutUrl;
+  }
 }
 
 /** Member login destination, with an on-page fallback. */

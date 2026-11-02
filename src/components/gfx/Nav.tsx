@@ -72,7 +72,7 @@ export function Nav() {
               Member area
             </a>
             <a
-              href={startHref({ program: "Forge", size: "$50K", price: "$269" })}
+              href={startHref({ program: "forge", size: "50k" })}
               className="gfx-nav-cta"
             >
               Start evaluation

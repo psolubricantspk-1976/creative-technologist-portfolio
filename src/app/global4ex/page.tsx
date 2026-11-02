@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+import { loginHref, startHref, supportHref } from "@/config/site";
 
 /* ─────────────────────────── DATA ─────────────────────────── */
 
@@ -287,8 +289,8 @@ function Navbar() {
           ))}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <a href="#signin" style={{ fontSize: 14, fontWeight: 600, color: "#fff", textDecoration: "none" }}>Sign In</a>
-          <a href="#signup" style={{
+          <a href={loginHref} style={{ fontSize: 14, fontWeight: 600, color: "#fff", textDecoration: "none" }}>Sign In</a>
+          <a href={startHref({ program: "forge", size: "50k" })} style={{
             display: "flex", alignItems: "center", gap: 8, padding: "9px 18px 9px 22px",
             borderRadius: 999, background: "linear-gradient(135deg,#3b82f6,#1d4ed8)",
             color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
@@ -714,7 +716,7 @@ function PlansSection() {
                 ))}
               </div>
 
-              <a href="#signup" style={{
+              <a href={startHref({ program: "forge", size: "50k" })} style={{
                 display: "flex", alignItems: "center", justifyContent: "space-between",
                 background: "linear-gradient(135deg,#2563eb,#1d4ed8)",
                 color: "#fff", fontWeight: 700, fontSize: 15,
@@ -1267,7 +1269,7 @@ function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>
-            Quick answers based on our trading rules. Full detail lives in the <a href="#" style={{ color: "#60a5fa", textDecoration: "underline" }}>Help Center</a>, our <a href="#" style={{ color: "#60a5fa", textDecoration: "underline" }}>Anti-Money Laundering (AML) Policy</a>, and the legal links in the footer.
+            Quick answers based on our trading rules. Full detail lives in the <Link href="/help" style={{ color: "#60a5fa", textDecoration: "underline" }}>Help Center</Link>, our <a href="/legal#aml" style={{ color: "#60a5fa", textDecoration: "underline" }}>Anti-Money Laundering (AML) Policy</a>, and the legal links in the footer.
           </p>
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
@@ -1320,14 +1322,24 @@ function Footer() {
         </div>
         <div style={{ display: "flex", gap: 48 }}>
           {[
-            { title: "Platform", links: ["About","Plans","Rules","Contact us"] },
-            { title: "Legal", links: ["Privacy Policy","Terms of Service","AML Policy","Help Center"] },
+            { title: "Platform", links: [
+              { label: "About", href: "/#process" },
+              { label: "Plans", href: "/#programs" },
+              { label: "Rules", href: "/#rules" },
+              { label: "Contact us", href: supportHref },
+            ] },
+            { title: "Legal", links: [
+              { label: "Privacy Policy", href: "/legal#privacy" },
+              { label: "Terms of Service", href: "/legal#terms" },
+              { label: "AML Policy", href: "/legal#aml" },
+              { label: "Help Center", href: "/help" },
+            ] },
           ].map(col => (
             <div key={col.title}>
               <div style={{ fontSize: 12, fontWeight: 700, color: "rgba(255,255,255,0.35)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>{col.title}</div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {col.links.map(l => (
-                  <a key={l} href="#" style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{l}</a>
+                  <a key={l.label} href={l.href} style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", textDecoration: "none" }}>{l.label}</a>
                 ))}
               </div>
             </div>

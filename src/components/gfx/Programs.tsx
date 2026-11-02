@@ -2,92 +2,13 @@
 
 import { useState } from "react";
 import { startHref } from "@/config/site";
-
-type TierId = "spark" | "forge" | "apex";
-type SizeKey = "10k" | "25k" | "50k" | "100k" | "200k";
-
-const SIZES: Array<{ key: SizeKey; label: string }> = [
-  { key: "10k", label: "$10K" },
-  { key: "25k", label: "$25K" },
-  { key: "50k", label: "$50K" },
-  { key: "100k", label: "$100K" },
-  { key: "200k", label: "$200K" },
-];
-
-type Tier = {
-  id: TierId;
-  name: string;
-  type: string;
-  tagline: string;
-  split: string;
-  target: string;
-  daily: string;
-  max: string;
-  minDays: string;
-  popular?: boolean;
-  fees: Record<SizeKey, string>;
-};
-
-const TIERS: Tier[] = [
-  {
-    id: "spark",
-    name: "Spark",
-    type: "1-Step",
-    tagline:
-      "One target, one phase. The shortest route from evaluation to a simulated funded account.",
-    split: "80%",
-    target: "8%",
-    daily: "4%",
-    max: "8%",
-    minDays: "3 trading days",
-    fees: {
-      "10k": "$59",
-      "25k": "$119",
-      "50k": "$199",
-      "100k": "$329",
-      "200k": "$549",
-    },
-  },
-  {
-    id: "forge",
-    name: "Forge",
-    type: "2-Step",
-    tagline:
-      "The balanced two-phase evaluation. Room to build a track record without a daily loss ceiling that punishes a bad open.",
-    split: "90%",
-    target: "8% / 5%",
-    daily: "5%",
-    max: "10%",
-    minDays: "None",
-    popular: true,
-    fees: {
-      "10k": "$89",
-      "25k": "$169",
-      "50k": "$269",
-      "100k": "$439",
-      "200k": "$729",
-    },
-  },
-  {
-    id: "apex",
-    name: "Apex",
-    type: "1-Step Pro",
-    tagline:
-      "Tighter risk, higher reward split. Built for experienced operators with a repeatable process.",
-    split: "92%",
-    target: "6%",
-    daily: "3%",
-    max: "6%",
-    minDays: "None",
-    fees: {
-      "10k": "$129",
-      "25k": "$239",
-      "50k": "$379",
-      "100k": "$599",
-      "200k": "$999",
-    },
-  },
-];
+import {
+  PROGRAMS as TIERS,
+  SIZES,
+  priceFor,
+  type ProgramId as TierId,
+  type SizeKey,
+} from "@/config/programs";
 
 function CheckIcon() {
   return (
@@ -103,7 +24,7 @@ export function Programs() {
 
   const tier = TIERS.find((item) => item.id === activeId) ?? TIERS[1];
   const sizeLabel = SIZES.find((item) => item.key === size)?.label ?? "$50K";
-  const price = tier.fees[size];
+  const price = priceFor(tier, size);
 
   const objectives: Array<[string, string, boolean?]> = [
     ["Profit target", tier.target],
@@ -219,11 +140,7 @@ export function Programs() {
           </div>
 
           <a
-            href={startHref({
-              program: tier.name,
-              size: sizeLabel,
-              price,
-            })}
+            href={startHref({ program: tier.id, size })}
             className="gfx-btn gfx-btn--primary gfx-btn--block"
           >
             Start {tier.name} — {price}

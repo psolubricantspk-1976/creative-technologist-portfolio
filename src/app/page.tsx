@@ -406,7 +406,7 @@ function Hero() {
 
             <div className="gfx-hero-ctas">
               <a
-                href={startHref({ program: "Forge", size: "$50K", price: "$269" })}
+                href={startHref({ program: "forge", size: "50k" })}
                 className="gfx-btn gfx-btn--primary"
               >
                 Start an evaluation
@@ -1071,7 +1071,7 @@ function FinalCta() {
             </p>
             <div className="gfx-cta-actions">
               <a
-                href={startHref({ program: "Forge", size: "$50K", price: "$269" })}
+                href={startHref({ program: "forge", size: "50k" })}
                 className="gfx-btn gfx-btn--primary"
               >
                 Start an evaluation

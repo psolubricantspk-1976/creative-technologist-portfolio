@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Blocks } from "@/components/help/Blocks";
+import { supportHref } from "@/config/site";
 import { articleHref, adjacent, allArticles, collections, getArticle } from "@/content/help-center";
 
 type Params = { collection: string; article: string };
@@ -130,9 +131,9 @@ export default async function ArticlePage({
                 Ask before you trade. Support answers questions about rules, payouts and
                 account sizes.
               </p>
-              <Link href="/#faq" className="gfx-btn gfx-btn--ghost gfx-btn--sm">
-                Contact support
-              </Link>
+              <a href={supportHref} className="gfx-btn gfx-btn--primary gfx-btn--sm">
+                Email support
+              </a>
             </div>
           </article>
         </div>
