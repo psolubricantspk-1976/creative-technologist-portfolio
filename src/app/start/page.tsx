@@ -5,6 +5,7 @@ import { Footer } from "@/components/gfx/Footer";
 import { StartFlow } from "@/components/start/StartFlow";
 import { siteConfig } from "@/config/site";
 import { programById, sizeByKey } from "@/config/programs";
+import { paymentMethodById, type PaymentMethodId } from "@/config/payments";
 
 export const metadata: Metadata = {
   title: "Start an evaluation",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-type Search = { program?: string; size?: string };
+type Search = { program?: string; size?: string; method?: string };
 
 export default async function StartPage({
   searchParams,
@@ -30,6 +31,7 @@ export default async function StartPage({
   const params = await searchParams;
   const program = programById(params.program);
   const size = sizeByKey(params.size);
+  const method = paymentMethodById(params.method);
 
   return (
     <div className="gfx" id="top">
@@ -75,6 +77,7 @@ export default async function StartPage({
           <StartFlow
             initialProgram={program.id}
             initialSize={size.key}
+            initialMethod={method.id as PaymentMethodId}
             checkoutUrl={siteConfig.checkoutUrl ?? null}
             supportEmail={siteConfig.supportEmail}
             siteName={siteConfig.name}

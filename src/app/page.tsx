@@ -1077,9 +1077,9 @@ function FinalCta() {
                 Start an evaluation
                 <ArrowUpRight size={15} />
               </a>
-              <a href={supportHref} className="gfx-btn gfx-btn--ghost">
+              <Link href="/support" className="gfx-btn gfx-btn--ghost">
                 Talk to support
-              </a>
+              </Link>
             </div>
             <div className="gfx-cta-meta">
               <span>Instant access</span>
@@ -1093,16 +1093,84 @@ function FinalCta() {
   );
 }
 
+
+function TrustStrip() {
+  const items = [
+    {
+      label: "Traded on",
+      value: "MetaTrader 5",
+      note: "Desktop, web and mobile terminals",
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="12" rx="2" />
+          <path d="M7 20h10M12 16v4" />
+        </svg>
+      ),
+    },
+    {
+      label: "Pay with",
+      value: "Card · Crypto · Bank",
+      note: "Visa, Mastercard, USDT, BTC, SEPA",
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="2.5" y="5" width="19" height="14" rx="2.4" />
+          <path d="M2.5 10h19" />
+        </svg>
+      ),
+    },
+    {
+      label: "Support",
+      value: "Seven days a week",
+      note: "Answered within one business day",
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.6 9.6 0 0 1-3.4-.6L3 21l1.8-5.1A8.3 8.3 0 0 1 3.6 11 8.4 8.4 0 0 1 12 2.6h.9A8.4 8.4 0 0 1 21 11.5Z" />
+        </svg>
+      ),
+    },
+    {
+      label: "Accounts",
+      value: "100% simulated",
+      note: "No client funds are traded",
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M12 3 4.5 6.4v5.2c0 4.5 3.1 8.1 7.5 9.4 4.4-1.3 7.5-4.9 7.5-9.4V6.4L12 3Z" />
+          <path d="m9 12 2.2 2.2L15.5 10" />
+        </svg>
+      ),
+    },
+  ];
+
+  return (
+    <section className="gfx-trust-strip" aria-label="Platform, payment and support details">
+      <div className="gfx-container">
+        <div className="gfx-trust-grid">
+          {items.map((item) => (
+            <div className="gfx-trust-item" key={item.label}>
+              <span className="gfx-trust-ico" aria-hidden="true">{item.icon}</span>
+              <span className="gfx-trust-copy">
+                <span className="gfx-trust-label">{item.label}</span>
+                <b>{item.value}</b>
+                <span className="gfx-trust-note">{item.note}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SupportBubble() {
   return (
-    <a href={supportHref} className="gfx-support-bubble" aria-label="Email GlobalForgeX support">
+    <Link href="/support" className="gfx-support-bubble" aria-label="Open GlobalForgeX support">
       <span className="gfx-support-ico" aria-hidden="true">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.6 9.6 0 0 1-3.4-.6L3 21l1.8-5.1A8.3 8.3 0 0 1 3.6 11 8.4 8.4 0 0 1 12 2.6h.9A8.4 8.4 0 0 1 21 11.5Z" />
         </svg>
       </span>
       <span className="gfx-support-label">Support</span>
-    </a>
+    </Link>
   );
 }
 
@@ -1131,6 +1199,7 @@ export default function HomePage() {
       <Nav />
       <Hero />
       <MarketTape />
+      <TrustStrip />
       <Pillars />
       <ProgramsSection />
       <RulesSection />

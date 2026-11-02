@@ -13,6 +13,9 @@ export default function HelpLayout({ children }: { children: ReactNode }) {
             <Link href="/help" className="hc-topnav-link">
               Help Center
             </Link>
+            <Link href="/support" className="hc-topnav-link">
+              Support
+            </Link>
             <Link href="/legal" className="hc-topnav-link">
               Legal
             </Link>

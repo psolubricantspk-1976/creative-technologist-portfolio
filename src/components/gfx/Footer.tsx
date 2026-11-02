@@ -52,6 +52,7 @@ const FOOTER_COLUMNS = [
     title: "Platform",
     links: [
       { label: "Start an evaluation", href: "/start" },
+      { label: "Member area", href: "/portal" },
       { label: "Evaluation programs", href: "/#programs" },
       { label: "Risk framework", href: "/#rules" },
       { label: "Rewards", href: "/#rewards" },
@@ -65,6 +66,7 @@ const FOOTER_COLUMNS = [
       { label: "Trader reviews", href: "/#reviews" },
       { label: "FAQ", href: "/#faq" },
       { label: "Help Center", href: "/help" },
+      { label: "Support", href: "/support" },
     ],
   },
   {

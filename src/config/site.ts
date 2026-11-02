@@ -131,5 +131,8 @@ export function checkoutHref(programId: string, sizeKey: string) {
   }
 }
 
-/** Member login destination, with an on-page fallback. */
-export const loginHref = siteConfig.loginUrl ?? "/#platform";
+/**
+ * Member area destination. Uses the real dashboard when configured, otherwise
+ * the on-site dashboard preview so the button always opens something.
+ */
+export const loginHref = siteConfig.loginUrl ?? "/portal";

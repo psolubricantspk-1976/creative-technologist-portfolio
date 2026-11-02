@@ -9,7 +9,9 @@ Tailwind CSS v4, with a bespoke ember-and-charcoal design system.
 | Route | Description |
 | --- | --- |
 | `/` | **GlobalForgeX** homepage — hero, program selector, risk framework, dashboard preview, rewards, reviews, FAQ |
-| `/start` | **Start an evaluation** — program + size picker with live fee, rules summary and checkout hand-off |
+| `/start` | **Checkout** — program + size + payment method (card, crypto, bank), order confirmation and hand-off |
+| `/portal` | **Member area** — funded dashboard preview: equity, progress, positions, payouts, account settings |
+| `/support` | **Support** — contact form, email, response times, quick links and common questions |
 | `/help` | **Help Center** — 94 articles across 12 collections, searchable, one page per article |
 | `/help/[collection]` | A collection's articles grouped by section |
 | `/help/[collection]/[article]` | A single article with sidebar, pager and inline pending markers |

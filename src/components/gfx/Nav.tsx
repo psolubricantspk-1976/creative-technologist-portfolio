@@ -11,6 +11,7 @@ const LINKS = [
   { label: "Rewards", href: "#rewards" },
   { label: "FAQ", href: "#faq" },
   { label: "Help Center", href: "/help" },
+  { label: "Support", href: "/support" },
 ];
 
 function ArrowUpRight({ size = 13 }: { size?: number }) {
